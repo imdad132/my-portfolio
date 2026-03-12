@@ -2,11 +2,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on NexNode | Security &amp; Geopolitical Analytics</title>
-    <link>http://localhost:57060/my-portfolio/tags/</link>
+    <link>https://imdad132.github.io/my-portfolio/tags/</link>
     <description>Recent content in Tags on NexNode | Security &amp; Geopolitical Analytics</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <copyright>NexNode | Security &amp; Geopolitical Analytics</copyright>
-    <atom:link href="http://localhost:57060/my-portfolio/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://imdad132.github.io/my-portfolio/tags/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
