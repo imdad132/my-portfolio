@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>http://localhost:57060/my-portfolio/about/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/categories/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/contact/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/insights/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/projects/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/services/</loc>
+  </url><url>
+    <loc>http://localhost:57060/my-portfolio/tags/</loc>
+  </url>
+</urlset>

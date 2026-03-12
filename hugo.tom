@@ -1,0 +1,46 @@
+baseURL = 'https://imdad132.github.io/my-portfolio/'
+languageCode = 'en-us'
+  title = "NexNode | Security & GeoPolitical Analytics"
+theme = 'ananke'
+
+[params]
+  description = "Data Science for Geopolitical & Security Risk"
+  copyright = "© 2026 NODE Geopolitics and Security Analytics. All Rights Reserved."
+
+  featured_image = "images/node-brand.png"
+  text_color = "text-light"
+  background_color_class = "bg-black-30"
+  custom_css = ["css/custom.css"]
+  # Make sure this is set to false so your center title stays visible
+  omit_header_text = false
+  # ... your other settings ...
+  # This tells the theme to show the full content
+  full_content = false
+  # This tells Hugo not to create automatic summaries
+  summaryLength = 1000
+  mainSections = ["posts"]
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "Services"
+  url = "/posts/services"
+  weight = 2
+
+[[menu.main]]
+  name = "Projects"
+  url = "/posts/projects"
+  weight = 3
+
+  [[menu.main]]
+  name = "Publications"
+  url = "/posts/publications"
+  weight = 4
+
+  [[menu.main]]
+  name = "Contact"
+  url = "/posts/contact"
+  weight = 5

@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>NexNode Dashboard</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    background: #080c14;
+    font-family: 'Courier New', monospace;
+    color: #c0cce8;
+    padding: 20px;
+  }
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 1px solid #1a3050;
+    padding-bottom: 14px;
+    margin-bottom: 16px;
+  }
+  .header-label {
+    color: #4a9eff;
+    font-size: 9px;
+    letter-spacing: 0.4em;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+  .header-title {
+    color: #ffffff;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .header-sub {
+    color: #607090;
+    font-size: 10px;
+    margin-top: 4px;
+  }
+  .header-right {
+    color: #3a5070;
+    font-size: 9px;
+    text-align: right;
+    line-height: 1.6;
+  }
+  .stat-cards {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .stat-card {
+    flex: 1;
+    min-width: 120px;
+    background: #0a0f1e;
+    border-radius: 6px;
+    padding: 12px 16px;
+    border: 1px solid;
+    border-top-width: 3px;
+  }
+  .stat-label {
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #607090;
+    margin-bottom: 6px;
+  }
+  .stat-value {
+    font-size: 18px;
+    font-weight: 700;
+    color: #ffffff;
+  }
+  .stat-sub {
+    font-size: 10px;
+    margin-top: 4px;
+  }
+  .charts {
+    display: grid;
+    gap: 14px;
+  }
+  .chart-card {
+    background: #0d1525;
+    border: 1px solid #1a3050;
+    border-radius: 8px;
+    padding: 16px;
+  }
+  .chart-title {
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 600;
+    margin-bottom: 2px;
+  }
+  .chart-sub {
+    color: #607090;
+    font-size: 10px;
+    margin-bottom: 8px;
+  }
+  .badge {
+    display: inline-block;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.3);
+    border-radius: 4px;
+    padding: 2px 10px;
+    color: #ef4444;
+    font-size: 9px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  .chart-wrap {
+    position: relative;
+    height: 260px;
+  }
+  .footer {
+    margin-top: 12px;
+    border-top: 1px solid #1a3050;
+    padding-top: 10px;
+    color: #3a5070;
+    font-size: 9px;
+    text-align: right;
+  }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div>
+    <div class="header-label">NexNode | Security & Geopolitical Analytics</div>
+    <div class="header-title">Ukraine Conflict — Analytical Dashboard</div>
+    <div class="header-sub">Armor warfare dynamics · Personnel loss forecasting · 2024–2026</div>
+  </div>
+  <div class="header-right">Data: ACLED · VIINA<br/>Author: Imdad Ullah</div>
+</div>
+
+<!-- Stat Cards -->
+<div class="stat-cards">
+  <div class="stat-card" style="border-color:#ef4444;">
+    <div class="stat-label">ARIMA Forecast 2026</div>
+    <div class="stat-value">350,110</div>
+    <div class="stat-sub" style="color:#ef4444;">Russian losses · Lower bound</div>
+  </div>
+  <div class="stat-card" style="border-color:#3b82f6;">
+    <div class="stat-label">Linear Trend 2026</div>
+    <div class="stat-value">499,671</div>
+    <div class="stat-sub" style="color:#3b82f6;">Russian losses · Upper bound</div>
+  </div>
+  <div class="stat-card" style="border-color:#9ca3af;">
+    <div class="stat-label">Status Quo 2026</div>
+    <div class="stat-value">367,255</div>
+    <div class="stat-sub" style="color:#9ca3af;">Russian losses · Baseline</div>
+  </div>
+  <div class="stat-card" style="border-color:#22c55e;">
+    <div class="stat-label">Territorial Control</div>
+    <div class="stat-value">+0.9%</div>
+    <div class="stat-sub" style="color:#22c55e;">Jan 2024 – Sep 2025</div>
+  </div>
+  <div class="stat-card" style="border-color:#f59e0b;">
+    <div class="stat-label">Unmanned Armor Peak</div>
+    <div class="stat-value">7,450</div>
+    <div class="stat-sub" style="color:#f59e0b;">Apr–Jun 2025 events</div>
+  </div>
+</div>
+
+<!-- Charts -->
+<div class="charts">
+
+  <!-- Chart 1 -->
+  <div class="chart-card">
+    <div class="chart-title">2026 Russian Personnel Loss Scenarios</div>
+    <div class="chart-sub">Three forecasting models applied to projected Russian military casualties</div>
+    <div class="badge">Russian losses only</div>
+    <div class="chart-wrap">
+      <canvas id="chart1"></canvas>
+    </div>
+  </div>
+
+  <!-- Chart 2 -->
+  <div class="chart-card">
+    <div class="chart-title">Correlation: Territorial Control vs. Armor Violence Types</div>
+    <div class="chart-sub">Russian territorial gains tracked against manned and unmanned armor violence events · Jan 2024 – Sep 2025</div>
+    <div class="chart-wrap">
+      <canvas id="chart2"></canvas>
+    </div>
+  </div>
+
+</div>
+
+<!-- Footer -->
+<div class="footer">
+  Author: Imdad Ullah · Data Sources: ACLED, VIINA (github.com/zhukovyuri/VIINA)
+</div>
+
+<script>
+const gridColor = "#1a3050";
+const tickColor = "#607090";
+
+// Chart 1 - Personnel Loss
+new Chart(document.getElementById("chart1"), {
+  type: "line",
+  data: {
+    labels: ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"],
+    datasets: [
+      {
+        label: "Status Quo (Total: 367,255)",
+        data: [31500,28000,31500,30300,31500,30300,31500,31500,30300,31500,30300,31500],
+        borderColor: "#9ca3af", borderDash: [5,5], borderWidth: 2,
+        pointRadius: 0, fill: false, tension: 0.3
+      },
+      {
+        label: "Linear Trend (Total: 499,671)",
+        data: [39500,36200,40700,39700,41600,40800,42800,43300,42400,44700,43300,45300],
+        borderColor: "#3b82f6", borderWidth: 2.5,
+        pointRadius: 3, pointBackgroundColor: "#3b82f6", fill: false, tension: 0.3
+      },
+      {
+        label: "ARIMA (Total: 350,110)",
+        data: [29800,27200,29900,28600,29900,28600,29700,29900,28600,29900,28600,29900],
+        borderColor: "#ef4444", borderWidth: 2.5,
+        pointRadius: 3, pointBackgroundColor: "#ef4444", fill: false, tension: 0.3
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: "#c0cce8", font: { size: 10, family: "Courier New" } } },
+      tooltip: { backgroundColor: "#0a0f1e", borderColor: "#1a3050", borderWidth: 1, titleColor: "#c0cce8", bodyColor: "#c0cce8", callbacks: { label: ctx => ` ${ctx.dataset.label}: ${ctx.raw.toLocaleString()}` } }
+    },
+    scales: {
+      x: { grid: { color: gridColor }, ticks: { color: tickColor, font: { size: 10 } } },
+      y: { grid: { color: gridColor }, ticks: { color: tickColor, font: { size: 10 }, callback: v => `${(v/1000).toFixed(0)}k` }, title: { display: true, text: "Monthly Personnel Losses", color: tickColor, font: { size: 9 } } }
+    }
+  }
+});
+
+// Chart 2 - Correlation
+new Chart(document.getElementById("chart2"), {
+  type: "line",
+  data: {
+    labels: ["Jan-Mar 24","Apr-Jun 24","Jul-Sep 24","Oct-Dec 24","Jan-Mar 25","Apr-Jun 25","Jul-Sep 25"],
+    datasets: [
+      {
+        label: "Territorial Control (%)",
+        data: [0.183,0.1845,0.1865,0.1890,0.1895,0.1907,0.1920],
+        borderColor: "#22c55e", borderWidth: 2.5,
+        pointRadius: 4, pointBackgroundColor: "#22c55e", fill: false, tension: 0.3,
+        yAxisID: "y"
+      },
+      {
+        label: "Unmanned Violence (Events)",
+        data: [2900,2850,5100,5100,6100,6950,6600],
+        borderColor: "#ef4444", borderDash: [6,3], borderWidth: 2,
+        pointRadius: 4, pointBackgroundColor: "#ef4444", fill: false, tension: 0.3,
+        yAxisID: "y1"
+      },
+      {
+        label: "Manned Violence (Events)",
+        data: [7000,4900,4900,3600,4000,4350,4550],
+        borderColor: "#4a9eff", borderDash: [2,4], borderWidth: 2,
+        pointRadius: 4, pointBackgroundColor: "#4a9eff", fill: false, tension: 0.3,
+        yAxisID: "y1"
+      }
+    ]
+  },
+  options: {
+    responsive: true, maintainAspectRatio: false,
+    plugins: {
+      legend: { labels: { color: "#c0cce8", font: { size: 10, family: "Courier New" } } },
+      tooltip: { backgroundColor: "#0a0f1e", borderColor: "#1a3050", borderWidth: 1, titleColor: "#c0cce8", bodyColor: "#c0cce8" }
+    },
+    scales: {
+      x: { grid: { color: gridColor }, ticks: { color: tickColor, font: { size: 9 } } },
+      y: { grid: { color: gridColor }, ticks: { color: "#22c55e", font: { size: 9 }, callback: v => v.toFixed(3) }, title: { display: true, text: "Territorial Control (%)", color: "#22c55e", font: { size: 9 } }, position: "left" },
+      y1: { grid: { drawOnChartArea: false }, ticks: { color: "#ef4444", font: { size: 9 } }, title: { display: true, text: "Violence Events", color: "#ef4444", font: { size: 9 } }, position: "right" }
+    }
+  }
+});
+</script>
+</body>
+</html>

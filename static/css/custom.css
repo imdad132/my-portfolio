@@ -1,0 +1,140 @@
+﻿@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* Apply Source Serif Pro to entire website */
+* {
+  font-family: 'Source Serif 4', serif !important;
+}
+
+.cover {
+  min-height: 0 !important;
+  height: 0 !important;
+  padding-bottom: 32% !important;
+  background-size: 100% 100% !important;
+  background-position: top center !important;
+  background-repeat: no-repeat !important;
+  position: relative !important;
+}
+.cover > div {
+  background: transparent !important;
+  position: absolute !important;
+  inset: 0 !important;
+}
+.cover::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(0, 0, 0, 0.35) !important;
+  z-index: 0 !important;
+}
+.cover > * {
+  position: relative !important;
+  z-index: 1 !important;
+}
+.cover .tc-l h1 {
+  display: none !important;
+}
+.cover nav a.f3 {
+  visibility: hidden !important;
+}
+header .pb3-m, header .pb6-l {
+  background-color: #000000 !important;
+}
+header > div {
+  background-color: #000000 !important;
+}
+article p {
+  text-align: justify !important;
+}
+article ul {
+  list-style: none !important;
+  padding-left: 24px !important;
+  position: relative !important;
+  border-left: 2px solid #0a0f1e !important;
+  margin-top: 16px !important;
+  margin-left: 0 !important;
+  text-align: left !important;
+}
+article ul li {
+  position: relative !important;
+  margin-bottom: 20px !important;
+  padding-left: 20px !important;
+  font-size: 15px !important;
+  line-height: 1.6 !important;
+  color: #1a1a1a !important;
+  text-align: left !important;
+}
+article ul li::before {
+  content: '' !important;
+  position: absolute !important;
+  left: -7px !important;
+  top: 6px !important;
+  width: 10px !important;
+  height: 10px !important;
+  border-radius: 50% !important;
+  background: #0a0f1e !important;
+  border: 2px solid #4a9eff !important;
+}
+article h3 {
+  font-size: 12px !important;
+  letter-spacing: 0.3em !important;
+  text-transform: uppercase !important;
+  color: #888 !important;
+  margin-bottom: 8px !important;
+  margin-top: 32px !important;
+  text-align: left !important;
+}
+article.measure-wide {
+  max-width: 100% !important;
+  width: 100% !important;
+}
+article.cf {
+  padding-left: 20px !important;
+  padding-right: 20px !important;
+}
+div.research-focus {
+  margin-top: 100px !important;
+  padding-top: 0 !important;
+}
+aside.instapaper_ignoref {
+  display: none !important;
+}
+article {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+main {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+.page-header {
+  background-color: #000000 !important;
+}
+/* Reduce heading size on inner pages */
+article h1 {
+  font-size: 28px !important;
+}
+
+article h2 {
+  font-size: 22px !important;
+}
+
+article h3 {
+  font-size: 16px !important;
+}
+
+/* Page title in header */
+.f1 {
+  font-size: 28px !important;
+}
+
+.f2 {
+  font-size: 22px !important;
+}
+/* Center page title in header */
+article h1, article h2 {
+  text-align: center !important;
+}
+
+.f1, .f2 {
+  text-align: center !important;
+}

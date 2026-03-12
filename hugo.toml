@@ -1,0 +1,46 @@
+baseURL = 'https://imdad132.github.io/my-portfolio/'
+languageCode = 'en-us'
+title = 'NexNode | Security & Geopolitical Analytics'
+theme = 'ananke'
+copyright = 'NexNode | Security & Geopolitical Analytics'
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[params]
+  description = "Data Science for Geopolitical & Security Risk"
+  featured_image = "images/node-brand.jpg"
+  text_color = "text-light"
+  background_color_class = "bg-black-30"
+  custom_css = ["css/custom.css"]
+  omit_header_text = false
+  full_content = false
+  summaryLength = 1000
+  mainSections = []
+
+[[menu.main]]
+  name = "About"
+  url = "/about/"
+  weight = 1
+
+[[menu.main]]
+  name = "Services"
+  url = "/services"
+  weight = 2
+
+[[menu.main]]
+  name = "Projects"
+  url = "/projects"
+  weight = 3
+
+[[menu.main]]
+  name = "Insights"
+  url = "/insights"
+  weight = 4
+
+[[menu.main]]
+  name = "Contact"
+  url = "/contact"
+  weight = 5
